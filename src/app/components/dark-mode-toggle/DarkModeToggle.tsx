@@ -2,6 +2,7 @@
 
 import { Switch } from "antd";
 import React, { useEffect, useState } from "react";
+import { MoonOutlined, SunOutlined } from "@ant-design/icons";
 
 export const DarkModeToggle = () => {
   const [isDark, setIsDark] = useState<boolean>(true);
@@ -43,7 +44,17 @@ export const DarkModeToggle = () => {
 
   return (
     <div>
-      <Switch defaultChecked onChange={handleChange} />
+      <Switch
+        className="scale-125 mr-4 bg-primary-color dark:bg-primary-color hover:!bg-primary-color"
+        checkedChildren={
+          <SunOutlined className="-translate-y-px -translate-x-px text-slate-50" />
+        }
+        unCheckedChildren={
+          <MoonOutlined className="-translate-y-px translate-x-px text-slate-50" />
+        }
+        checked={isDark}
+        onChange={handleChange}
+      />
     </div>
   );
 };

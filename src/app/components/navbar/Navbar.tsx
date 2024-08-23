@@ -2,20 +2,28 @@
 
 import { socials, items } from "@/app/lib/constants";
 import { Avatar, Dropdown } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { DarkModeToggle } from "../dark-mode-toggle/DarkModeToggle";
+import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
   const [menu, setMenu] = useState<string>("1");
   const t = useTranslations("NavBar");
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname === "/about") setMenu("2");
+    else if (pathname === "/experience") setMenu("3");
+    else setMenu("1");
+  }, []);
 
   const handleMenuChange = (item: any) => {
     setMenu(item);
   };
 
   return (
-    <div className="fixed w-full h-20 z-10 border-b-2 flex items-center justify-between pl-5 pr-5 bg-white dark:bg-slate-800">
+    <div className="fixed w-full h-20 z-10 flex items-center justify-between pl-5 pr-5 bg-bg-color dark:bg-dark-bg-color">
       <img
         width={40}
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
@@ -35,6 +43,7 @@ export const Navbar = () => {
             selectable: true,
             defaultSelectedKeys: [menu],
             onSelect: handleMenuChange,
+            style: { color: "red" },
           }}
           className="w-7 h-7"
         >

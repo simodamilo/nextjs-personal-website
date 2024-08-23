@@ -1,7 +1,7 @@
 export default function Homepage() {
   return (
     <>
-      <div className="container mx-auto px-4 pt-40">
+      <div className="h-dvh pt-20 bg-bg-color dark:bg-dark-bg-color w-full">
         <h1>Homepage</h1>
       </div>
     </>
