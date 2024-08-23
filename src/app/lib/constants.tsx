@@ -4,24 +4,27 @@ import {
   LinkedinFilled,
   GithubOutlined,
   MediumOutlined,
-  SmileOutlined,
+  HomeOutlined,
+  InfoCircleOutlined,
+  StarOutlined,
 } from "@ant-design/icons";
+import Link from "next/link";
 
 export const socials: Social[] = [
   {
     name: "Medium",
     link: "https://medium.com/@simodamilo",
-    icon: <MediumOutlined style={{ fontSize: "28px" }} />,
+    icon: <MediumOutlined className="text-[28px] dark:text-slate-300" />,
   },
   {
     name: "GitHub",
     link: "https://github.com/simodamilo",
-    icon: <GithubOutlined style={{ fontSize: "28px" }} />,
+    icon: <GithubOutlined className="text-[28px] dark:text-slate-300" />,
   },
   {
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/simone-d%E2%80%99amilo-425521180",
-    icon: <LinkedinFilled style={{ fontSize: "28px" }} />,
+    icon: <LinkedinFilled className="text-[28px] dark:text-slate-300" />,
   },
 ];
 
@@ -29,17 +32,34 @@ export const items: MenuProps["items"] = [
   {
     key: "1",
     label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.antgroup.com"
-      >
-        1st menu item
-      </a>
+      <div className="flex items-center w-[calc(100vw_-_70px)] md:w-72 h-8">
+        <Link href="/homepage" className="flex items-center gap-4 w-full">
+          <HomeOutlined className="text-xl" />
+          <p className="text-base font-semibold">Homepage</p>
+        </Link>
+      </div>
     ),
   },
   {
     key: "2",
-    label: "a danger item",
+    label: (
+      <div className="flex items-center w-[calc(100vw_-_70px)] md:w-72 h-8">
+        <Link href="/about" className="flex items-center gap-4 w-full">
+          <InfoCircleOutlined className="text-xl" />{" "}
+          <p className="text-base font-semibold">About me</p>
+        </Link>
+      </div>
+    ),
+  },
+  {
+    key: "3",
+    label: (
+      <div className="flex items-center w-[calc(100vw_-_70px)] md:w-72 h-8">
+        <Link href="/experience" className="flex items-center gap-4 w-full">
+          <StarOutlined className="text-xl" />{" "}
+          <p className="text-base font-semibold">Experience</p>
+        </Link>
+      </div>
+    ),
   },
 ];
