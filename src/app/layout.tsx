@@ -21,7 +21,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning className="no-scrollbar">
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
