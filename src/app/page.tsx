@@ -1,5 +1,6 @@
 import { Col, Row } from "antd";
 import Navigator from "./components/navigator/Navigator";
+import Homepage from "./pages/homepage/Homepage";
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
         <Navigator />
         <Col span={23}>
           <div id="part-1" style={{ height: "100vh" }}>
-            Page 1
+            <Homepage />
           </div>
           <div id="part-2" style={{ height: "100vh" }}>
             Page 2

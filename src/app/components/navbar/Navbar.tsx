@@ -1,19 +1,15 @@
-import { socials } from "@/app/utils/lib/constants";
+import { socials, items } from "@/app/utils/constants";
 import { DarkModeToggle } from "../dark-mode-toggle/DarkModeToggle";
+import { Avatar, Dropdown } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
 export const Navbar = () => {
   return (
-    <div className="fixed w-full h-20 z-10 flex items-center justify-end pl-5 pr-5">
-      <div className="flex gap-4">
-        <DarkModeToggle />
-        {socials.map((item) => {
-          return (
-            <a key={item.name} href={item.link} className="p-0" target="_blank">
-              {item.icon}
-            </a>
-          );
-        })}
-      </div>
+    <div className="fixed top-6 right-6 z-10 flex gap-3 items-center">
+      <DarkModeToggle />
+      <Dropdown menu={{ items }} placement="bottom">
+        <Avatar icon={<UserOutlined />} />
+      </Dropdown>
     </div>
   );
 };

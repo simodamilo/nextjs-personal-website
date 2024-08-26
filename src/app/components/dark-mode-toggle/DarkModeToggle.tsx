@@ -45,7 +45,7 @@ export const DarkModeToggle = () => {
   return (
     <div>
       <Switch
-        className="scale-125 mr-4 bg-primary-color dark:bg-primary-color hover:!bg-primary-color"
+        className="scale-125 mr-4 mb-1 bg-primary-color dark:bg-primary-color hover:!bg-primary-color"
         checkedChildren={
           <SunOutlined className="-translate-y-px -translate-x-px text-slate-50" />
         }
