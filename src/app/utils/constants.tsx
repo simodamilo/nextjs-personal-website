@@ -60,3 +60,11 @@ export const items: MenuProps["items"] = [
     ),
   },
 ];
+
+export const skills: string[] = [
+  "React",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+];
