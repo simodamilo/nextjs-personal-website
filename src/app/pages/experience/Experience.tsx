@@ -1,72 +1,58 @@
 "use client";
 
+import { ExperienceTemplate } from "@/app/components/experience-template/ExperienceTemplate";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 export default function Experience() {
-  const t = useTranslations("homepage");
+  const t = useTranslations("experience");
   const [focusElement, setFocusElement] = useState<number>(0);
-  const div1 = useRef<any>(null);
-  const div2 = useRef<any>(null);
-  const div3 = useRef<any>(null);
+  const workingDiv = useRef<any>(null);
+  const personalDiv = useRef<any>(null);
+  const accademicDiv = useRef<any>(null);
 
+  /* Get the focused element */
   useEffect(() => {
     const handleOutSideClick = (event: MouseEvent) => {
-      if (div1.current?.contains(event.target)) {
-        setFocusElement(1);
-      } else if (div2.current?.contains(event.target)) {
-        setFocusElement(2);
-      } else if (div3.current?.contains(event.target)) {
-        setFocusElement(3);
-      } else {
-        setFocusElement(0);
-      }
+      if (workingDiv.current?.contains(event.target)) setFocusElement(1);
+      else if (personalDiv.current?.contains(event.target)) setFocusElement(2);
+      else if (accademicDiv.current?.contains(event.target)) setFocusElement(3);
+      else setFocusElement(0);
     };
 
     window.addEventListener("mousedown", handleOutSideClick);
 
-    return () => {
-      window.removeEventListener("mousedown", handleOutSideClick);
-    };
+    return () => window.removeEventListener("mousedown", handleOutSideClick);
   }, []);
 
+  /* Handle div width */
+  const handleWidth = (divNo: number) => {
+    return focusElement === 0
+      ? "w-[32%]"
+      : focusElement === divNo
+      ? "w-full md:w-[64%]"
+      : "w-[16%]";
+  };
+
   return (
-    <div className="h-full pl-6 pr-6 md:ml-20 md:mr-20 grid grid-cols-1 md:grid-cols-6 gap-3">
+    <div className="flex flex-col justify-between h-full ml-6 mr-6 md:pt-40 md:pb-40 md:flex-row md:ml-20 md:mr-20">
       <div
-        ref={div1}
-        className={`border md:mt-20 md:mb-20 ${
-          focusElement === 0
-            ? "col-span-2"
-            : focusElement === 1
-            ? "col-span-4"
-            : "col-span-1"
-        }`}
+        ref={workingDiv}
+        className={`border h-full mb-4 md:mb-0 duration-500 ${handleWidth(1)}`}
       >
-        Test 1
+        <ExperienceTemplate title="work" />
       </div>
       <div
-        ref={div2}
-        className={`border md:mt-20 md:mb-20 ${
-          focusElement === 0
-            ? "col-span-2"
-            : focusElement === 2
-            ? "col-span-4"
-            : "col-span-1"
-        }`}
+        ref={personalDiv}
+        className={`border h-full mb-4 md:mb-0 duration-500 ${handleWidth(2)}`}
       >
-        Test 2
+        <ExperienceTemplate title="personal" />
       </div>
       <div
-        ref={div3}
-        className={`border md:mt-20 md:mb-20 ${
-          focusElement === 0
-            ? "col-span-2"
-            : focusElement === 3
-            ? "col-span-4"
-            : "col-span-1"
-        }`}
+        ref={accademicDiv}
+        className={`border h-full mb-4 md:mb-0 duration-500 ${handleWidth(3)}`}
       >
-        Test 3
+        <ExperienceTemplate title="academic" />
       </div>
     </div>
   );
