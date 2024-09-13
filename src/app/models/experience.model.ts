@@ -1,7 +1,14 @@
-interface Experience {
+export interface Icon {
+  key?: number;
+  icon?: React.ReactNode;
+  title?: string;
+}
+
+export interface Experience {
+  key?: number;
   title?: string;
   description?: string;
-  icons?: React.ReactNode[];
+  icons?: Icon[];
 }
 
 export interface ExperienceTemplateProps {

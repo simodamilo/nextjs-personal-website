@@ -13,7 +13,12 @@ import {
   SonarqubeOriginal,
   SpringOriginal,
   GitOriginal,
+  AntdesignOriginal,
+  Html5Original,
+  JavascriptOriginal,
+  ReactrouterOriginal,
 } from "devicons-react";
+import { Experience } from "../models/experience.model";
 
 export const items: MenuProps["items"] = [
   {
@@ -54,29 +59,119 @@ export const skills: string[] = [
   "TypeScript",
 ];
 
-export const workExperiences = [
+export const workExperiences: Experience[] = [
   {
-    title: "React Web App for Fashion client",
-    description: "Lorem ipsu",
+    key: 1,
+    title: "React Web App",
+    description:
+      "Front-end development of a webapp for a company in the financial industry. Developments of some basic features in the back-end with Spring Boot. Libraries and technologies:",
     icons: [
-      <ReactOriginal size="24" />,
-      <TypescriptOriginal size="24" />,
-      <SassOriginal size="24" />,
-      <ReduxOriginal size="24" />,
-      <JenkinsOriginal size="24" />,
-      <SonarqubeOriginal size="24" />,
-      <SpringOriginal size="24" />,
-      <GitOriginal size="24" />,
+      {
+        key: 1,
+        icon: <ReactOriginal key="reactOriginal_1" size="24" />,
+        title: "React",
+      },
+      {
+        key: 2,
+        icon: <ReduxOriginal key="reduxOriginal_1" size="24" />,
+        title: "Redux",
+      },
+      {
+        key: 3,
+        icon: <AntdesignOriginal key="antdesignOriginal_1" size="24" />,
+        title: "Ant Design",
+      },
+      {
+        key: 4,
+        icon: <TypescriptOriginal key="typescriptOriginal_1" size="24" />,
+        title: "Typescript",
+      },
+      {
+        key: 5,
+        icon: <SassOriginal key="sassOriginal_1" size="24" />,
+        title: "Sass",
+      },
+      {
+        key: 6,
+        icon: <JenkinsOriginal key="jenkinsOriginal_1" size="24" />,
+        title: "Jenkins",
+      },
+      {
+        key: 7,
+        icon: <SonarqubeOriginal key="sonarqubeOriginal_1" size="24" />,
+        title: "Sonarqube",
+      },
+      {
+        key: 8,
+        icon: <SpringOriginal key="springOriginal_1" size="24" />,
+        title: "Spring",
+      },
+      {
+        key: 9,
+        icon: <GitOriginal key="gitOriginal_1" size="24" />,
+        title: "Git",
+      },
     ],
   },
   {
-    title: "JSP Pages",
-    description: "Lorem ipsu",
-    icons: [],
+    key: 2,
+    title: "e-Commerce SAP",
+    description:
+      "Front-end development of an e-Commerce with JSP pages. Technologies:",
+    icons: [
+      {
+        key: 20,
+        icon: <Html5Original key="html5Original_2" size="24" />,
+        title: "HTML5",
+      },
+      {
+        key: 21,
+        icon: <SassOriginal key="sassOriginal_2" size="24" />,
+        title: "Sass",
+      },
+      {
+        key: 22,
+        icon: <JavascriptOriginal key="javascriptOriginal_2" size="24" />,
+        title: "Javascript",
+      },
+      {
+        key: 23,
+        icon: <GitOriginal key="gitOriginal_1" size="24" />,
+        title: "Git",
+      },
+    ],
   },
   {
-    title: "React Web App for Financial client",
-    description: "Lorem ipsu",
-    icons: [],
+    key: 3,
+    title: "React Web App",
+    description:
+      "Front-end development of a webapp for a company in the fashion industry. Technologies:",
+    icons: [
+      {
+        key: 40,
+        icon: <ReduxOriginal key="reduxOriginal_3" size="24" />,
+        title: "Redux",
+      },
+      {
+        key: 41,
+        icon: <TypescriptOriginal key="typescriptOriginal_3" size="24" />,
+        title: "Typescript",
+      },
+      {
+        key: 42,
+        icon: <ReactrouterOriginal key="reactrouterOriginal_3" size="24" />,
+        title: "React Router",
+      },
+      {
+        key: 43,
+        icon: <SassOriginal key="sassOriginal_3" size="24" />,
+        title: "Sass",
+      },
+      {
+        key: 44,
+        icon: <GitOriginal key="gitOriginal_1" size="24" />,
+        title: "Git",
+      },
+    ],
   },
 ];

@@ -11,6 +11,19 @@ export default function Experience() {
   const workingDiv = useRef<any>(null);
   const personalDiv = useRef<any>(null);
   const accademicDiv = useRef<any>(null);
+  const [width, setWidth] = useState(0);
+
+  /* Get the window width */
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    const handleWindowResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
 
   /* Get the focused element */
   useEffect(() => {
@@ -29,22 +42,23 @@ export default function Experience() {
   /* Handle div width */
   const handleWidth = (divNo: number) => {
     return focusElement === 0
-      ? "w-[32%]"
+      ? "md:w-[32%]"
       : focusElement === divNo
-      ? "w-full md:w-[64%]"
-      : "w-[16%]";
+      ? "md:w-[64%]"
+      : "md:w-[16%]";
   };
 
   /* Handle div size */
   const handleSize = (divNo: number) => {
-    return focusElement === 0 ? "md" : focusElement === divNo ? "lg" : "sm";
+    if (width > 768)
+      return focusElement === 0 ? "md" : focusElement === divNo ? "lg" : "sm";
   };
 
   return (
-    <div className="flex flex-col justify-between h-full ml-6 mr-6 md:pt-40 md:pb-40 md:flex-row md:ml-20 md:mr-20">
+    <div className="flex flex-col justify-between md:h-full md:pt-40 md:pb-40 ml-6 mr-6 md:flex-row md:ml-20 md:mr-20">
       <div
         ref={workingDiv}
-        className={`border h-full mb-4 md:mb-0 duration-500 ${handleWidth(1)}`}
+        className={`border mb-4 md:mb-0 duration-500 w-full ${handleWidth(1)}`}
       >
         <ExperienceTemplate
           title={t("work-title")}
@@ -54,13 +68,13 @@ export default function Experience() {
       </div>
       <div
         ref={personalDiv}
-        className={`border h-full mb-4 md:mb-0 duration-500 ${handleWidth(2)}`}
+        className={`border mb-4 md:mb-0 duration-500 w-full ${handleWidth(2)}`}
       >
         <ExperienceTemplate title={t("personal-title")} />
       </div>
       <div
         ref={accademicDiv}
-        className={`border h-full mb-4 md:mb-0 duration-500 ${handleWidth(3)}`}
+        className={`border mb-4 md:mb-0 duration-500 w-full ${handleWidth(3)}`}
       >
         <ExperienceTemplate title={t("academic-title")} />
       </div>
