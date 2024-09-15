@@ -1,4 +1,4 @@
-import { socials, items } from "@/app/utils/constants";
+import { items } from "@/app/utils/constants";
 import { DarkModeToggle } from "../dark-mode-toggle/DarkModeToggle";
 import { Avatar, Dropdown } from "antd";
 import { UserOutlined } from "@ant-design/icons";
