@@ -6,8 +6,10 @@ export interface Icon {
 
 export interface Experience {
   key?: number;
-  title?: string;
-  description?: string;
+  briefTitle?: string;
+  completeTitle?: string;
+  briefDescription?: string;
+  completeDescription?: string;
   icons?: Icon[];
 }
 

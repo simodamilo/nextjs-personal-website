@@ -8,7 +8,7 @@ export default function Homepage() {
   const t = useTranslations("homepage");
 
   return (
-    <div className="h-full flex flex-col justify-center pl-6 md:ml-20">
+    <div className="h-full flex flex-col justify-center pl-6 lg:ml-20 pt-40 pb-40">
       <MainTitle />
       <h2 className="text-2xl text-secondary-color dark:text-dark-secondary-color text-left">
         {t("intro-copy")}

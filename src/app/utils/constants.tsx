@@ -62,9 +62,12 @@ export const skills: string[] = [
 export const workExperiences: Experience[] = [
   {
     key: 1,
-    title: "React Web App",
-    description:
-      "Front-end development of a webapp for a company in the financial industry. Developments of some basic features in the back-end with Spring Boot. Libraries and technologies:",
+    briefTitle: "React",
+    completeTitle: "React Web App",
+    briefDescription:
+      "Front-end development of a webapp for a company in the financial industry. Developments of some basic features in the back-end with Spring Boot.",
+    completeDescription:
+      "Front-end development of a webapp for a company in the financial industry. Part of a big international team composed of several tens of developers with multiple integration with external services. Developments of some basic features in the back-end with Spring Boot. Libraries and technologies:",
     icons: [
       {
         key: 1,
@@ -115,9 +118,11 @@ export const workExperiences: Experience[] = [
   },
   {
     key: 2,
-    title: "e-Commerce SAP",
-    description:
-      "Front-end development of an e-Commerce with JSP pages. Technologies:",
+    briefTitle: "SAP",
+    completeTitle: "e-Commerce SAP",
+    briefDescription: "Front-end development of an e-Commerce with JSP pages.",
+    completeDescription:
+      "Front-end development of an e-Commerce with JSP pages. The project inclueded the re-styling of an existing e-Commerce by updating the layout structure.",
     icons: [
       {
         key: 20,
@@ -143,9 +148,12 @@ export const workExperiences: Experience[] = [
   },
   {
     key: 3,
-    title: "React Web App",
-    description:
-      "Front-end development of a webapp for a company in the fashion industry. Technologies:",
+    briefTitle: "React",
+    completeTitle: "React Web App",
+    briefDescription:
+      "Front-end development of a webapp for a company in the fashion industry.",
+    completeDescription:
+      "Front-end development of a webapp for a company in the fashion industry. Part of a team of 4 front-end developers, we were able to deliver an high quality solution in the estimated time.",
     icons: [
       {
         key: 40,

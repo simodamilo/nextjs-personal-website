@@ -9,13 +9,13 @@ export default function Home() {
       <Row className="bg-bg-color dark:bg-dark-bg-color">
         <Navigator />
         <Col span={24} md={{ span: 23 }}>
-          <div id="part-1" style={{ height: "100vh" }}>
+          <div id="part-1" className="h-fit lg:h-screen">
             <Homepage />
           </div>
-          <div id="part-2" style={{ height: "100vh" }}>
+          <div id="part-2" className="h-fit lg:h-screen">
             <Experience />
           </div>
-          <div id="part-3" style={{ height: "100vh" }}>
+          <div id="part-3" className="h-fit lg:h-screen">
             Page 3
           </div>
         </Col>

@@ -30,7 +30,7 @@ export default function Navigator() {
   return (
     <Col
       span={1}
-      className="hidden md:flex flex-col items-center justify-center h-dvh"
+      className="hidden lg:flex flex-col items-center justify-center h-dvh"
     >
       <div className="fixed flex flex-col gap-4 items-center">
         <a onClick={() => handleClick(1, "part-1")}>

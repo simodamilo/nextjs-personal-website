@@ -8,10 +8,16 @@ import { useEffect, useRef, useState } from "react";
 export default function Experience() {
   const t = useTranslations("experience");
   const [focusElement, setFocusElement] = useState<number>(0);
+  const [width, setWidth] = useState<number>(0);
+  const [isContentVisible, setIsContentVisible] = useState<boolean>(true);
   const workingDiv = useRef<any>(null);
   const personalDiv = useRef<any>(null);
   const accademicDiv = useRef<any>(null);
-  const [width, setWidth] = useState(0);
+
+  const focusElementStateRef = useRef(0);
+  focusElementStateRef.current = focusElement;
+  const widthStateRef = useRef(0);
+  widthStateRef.current = width;
 
   /* Get the window width */
   useEffect(() => {
@@ -28,10 +34,15 @@ export default function Experience() {
   /* Get the focused element */
   useEffect(() => {
     const handleOutSideClick = (event: MouseEvent) => {
-      if (workingDiv.current?.contains(event.target)) setFocusElement(1);
-      else if (personalDiv.current?.contains(event.target)) setFocusElement(2);
-      else if (accademicDiv.current?.contains(event.target)) setFocusElement(3);
-      else setFocusElement(0);
+      if (workingDiv.current?.contains(event.target)) {
+        setContentVisibility(1);
+      } else if (personalDiv.current?.contains(event.target)) {
+        setContentVisibility(2);
+      } else if (accademicDiv.current?.contains(event.target)) {
+        setContentVisibility(3);
+      } else {
+        setContentVisibility(0);
+      }
     };
 
     window.addEventListener("mousedown", handleOutSideClick);
@@ -39,42 +50,65 @@ export default function Experience() {
     return () => window.removeEventListener("mousedown", handleOutSideClick);
   }, []);
 
+  const setContentVisibility = (nextFocusElement: number) => {
+    if (
+      focusElementStateRef.current !== nextFocusElement &&
+      widthStateRef.current > 1024
+    ) {
+      setIsContentVisible(false);
+      setTimeout(() => {
+        setIsContentVisible(true);
+      }, 100);
+      setFocusElement(nextFocusElement);
+    }
+  };
+
   /* Handle div width */
   const handleWidth = (divNo: number) => {
     return focusElement === 0
-      ? "md:w-[32%]"
+      ? "lg:w-[32%]"
       : focusElement === divNo
-      ? "md:w-[64%]"
-      : "md:w-[16%]";
+      ? "lg:w-[64%]"
+      : "lg:w-[16%]";
   };
 
   /* Handle div size */
   const handleSize = (divNo: number) => {
-    if (width > 768)
+    if (width > 1024)
       return focusElement === 0 ? "md" : focusElement === divNo ? "lg" : "sm";
   };
 
   return (
-    <div className="flex flex-col justify-between md:h-full md:pt-40 md:pb-40 ml-6 mr-6 md:flex-row md:ml-20 md:mr-20">
+    <div className="flex flex-col justify-between lg:h-full pt-40 pb-40 ml-6 mr-6 lg:flex-row lg:ml-20 lg:mr-20">
       <div
         ref={workingDiv}
-        className={`border mb-4 md:mb-0 duration-500 w-full ${handleWidth(1)}`}
+        className={`rounded lg:cursor-pointer shadow-[0px_15px_20px_rgba(0,0,0,0.50)] dark:shadow-[0px_15px_20px_rgba(255,255,255,0.50)] mb-4 lg:mb-0 duration-500 w-full ${handleWidth(
+          1
+        )}`}
       >
         <ExperienceTemplate
           title={t("work-title")}
-          experiences={workExperiences}
+          experiences={isContentVisible ? workExperiences : []}
           size={handleSize(1)}
         />
       </div>
       <div
         ref={personalDiv}
-        className={`border mb-4 md:mb-0 duration-500 w-full ${handleWidth(2)}`}
+        className={`rounded lg:cursor-pointer shadow-[0px_15px_20px_rgba(0,0,0,0.50)] dark:shadow-[0px_15px_20px_rgba(255,255,255,0.50)] mb-4 lg:mb-0 duration-500 w-full ${handleWidth(
+          2
+        )}`}
       >
-        <ExperienceTemplate title={t("personal-title")} />
+        <ExperienceTemplate
+          title={t("personal-title")}
+          experiences={isContentVisible ? workExperiences : []}
+          size={handleSize(2)}
+        />
       </div>
       <div
         ref={accademicDiv}
-        className={`border mb-4 md:mb-0 duration-500 w-full ${handleWidth(3)}`}
+        className={`rounded lg:cursor-pointer shadow-[0px_15px_20px_rgba(0,0,0,0.50)] dark:shadow-[0px_15px_20px_rgba(255,255,255,0.50)] mb-4 lg:mb-0 duration-500 w-full ${handleWidth(
+          3
+        )}`}
       >
         <ExperienceTemplate title={t("academic-title")} />
       </div>
