@@ -6,6 +6,11 @@
     "experiences": "Experience",
     "software-eng": "Software Engineer"
   },
+  "experience": {
+    "work-title": "Work",
+    "personal-title": "Personal",
+    "academic-title": "Academic"
+  },
   "about": {
     "homepage": "Homepage"
   }

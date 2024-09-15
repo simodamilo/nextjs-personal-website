@@ -6,8 +6,7 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   output: "export",  // <=== enables static exports
   reactStrictMode: true,
+  basePath: process.env.NODE_ENV === 'production' ? '/nextjs-personal-website' : ''
 };
-
-module.exports = nextConfig;
 
 export default withNextIntl(nextConfig);
