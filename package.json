@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev", 
     "build": "next build", 
-    "prebuild": "npx tailwindcss -i ./src/app/styles/globals.css -o ./src/app/styles/globals.css", 
+    "prebuild": "npx tailwindcss -i ./src/app/globals.css -o ./src/app/globals.css", 
     "start": "next start", 
     "lint": "next lint"
   },
@@ -18,7 +18,8 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-i18next": "^14.1.2"
+    "react-i18next": "^14.1.2",
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@types/node": "^20",

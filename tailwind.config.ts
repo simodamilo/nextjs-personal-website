@@ -5,7 +5,9 @@ const config: Config = {
     "./src/app/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  purge: ["./**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
